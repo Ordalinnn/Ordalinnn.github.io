@@ -101,6 +101,26 @@
   .video video { width: 100%; max-width: 100%; display: block; border-radius: 12px; background: #0a1428; aspect-ratio: 16 / 9; border: 1px solid var(--line); }
   .video p, .try { margin: 0; font-size: 14px; color: var(--muted); }
   .try { font-weight: 600; color: var(--fg); font-size: 16px; }
+  .sales { display: grid; gap: 14px; margin-top: 18px; }
+  .sales h2 { margin: 0; font: 700 clamp(20px, 2.6vw, 26px)/1.2 var(--display); text-wrap: balance; }
+  .sales .sub { margin: 0; color: var(--muted); max-width: 70ch; }
+  .cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .cols.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 980px) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cols.three { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 560px) { .cols { grid-template-columns: minmax(0, 1fr); } }
+  .box { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+  .box h3 { margin: 0; font: 600 16px/1.3 var(--body); }
+  .box p { margin: 0; color: var(--muted); font-size: 14px; }
+  .box .step { font: 500 11px/1 var(--mono); }
+  .price { font: 700 26px/1.1 var(--display); font-variant-numeric: tabular-nums; color: var(--fg); }
+  .box ul { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 3px; font-size: 14px; }
+  .box.featured { border: 2px solid var(--accent); }
+  .tag { justify-self: start; font: 600 12px var(--body); color: #fff; background: var(--accent); border-radius: 999px; padding: 2px 10px; }
+  .faq { display: grid; gap: 8px; }
+  .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .faq details p { margin: 8px 0 0; color: var(--muted); max-width: 75ch; }
+  .final { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; justify-items: start; }
   .note { font-size: 13px; color: var(--muted); max-width: 80ch; }
   @media (prefers-reduced-motion: reduce) { tr.new td, .msg.new { animation: none; } }
 </style>
@@ -159,6 +179,52 @@
       <div class="chat" id="chat" aria-live="polite"></div>
     </section>
   </div>
+
+
+  <section class="sales" aria-labelledby="s-what">
+    <h2 id="s-what">Что вы получите</h2>
+    <div class="cols">
+      <div class="box"><h3>Заявка за секунды</h3><p>Менеджер получает уведомление в Telegram сразу, а не когда проверит почту или админку сайта.</p></div>
+      <div class="box"><h3>Срочные видно сразу</h3><p>ИИ помечает горячие заявки и жалобы красным, чтобы на них ответили первыми.</p></div>
+      <div class="box"><h3>Без спама</h3><p>Предложения «продвинуть сайт» и боты отсеиваются и не отвлекают менеджера.</p></div>
+      <div class="box"><h3>Вся история в таблице</h3><p>Каждая заявка сохраняется в Google Таблицу: видно, сколько заявок пришло и откуда.</p></div>
+    </div>
+  </section>
+
+  <section class="sales" aria-labelledby="s-how">
+    <h2 id="s-how">Как подключаем</h2>
+    <div class="cols three">
+      <div class="box"><span class="step">Шаг 1 · 15 минут</span><h3>Короткий созвон</h3><p>Смотрим, где у вас формы на сайте и кто обрабатывает заявки.</p></div>
+      <div class="box"><span class="step">Шаг 2 · 1–2 дня</span><h3>Настройка</h3><p>Подключаю формы, Telegram и таблицу. Сайт переделывать не нужно.</p></div>
+      <div class="box"><span class="step">Шаг 3 · в день сдачи</span><h3>Проверка на ваших заявках</h3><p>Отправляем тестовые заявки вместе, передаю короткую инструкцию.</p></div>
+    </div>
+  </section>
+
+  <section class="sales" aria-labelledby="s-price">
+    <h2 id="s-price">Стоимость</h2>
+    <p class="sub">Разовая оплата за настройку. Предоплата 50%, остаток после того, как вы проверите, что всё работает.</p>
+    <div class="cols three">
+      <div class="box"><h3>Старт</h3><div class="price">35 000 ₸</div><ul><li>1 форма → Telegram</li><li>Защита от спама</li><li>Запуск за 1 день</li></ul></div>
+      <div class="box featured"><span class="tag">Чаще выбирают</span><h3>Стандарт</h3><div class="price">70 000 ₸</div><ul><li>До 3 форм → Telegram</li><li>Google Таблица с историей заявок</li><li>Защита от спама</li><li>Запуск за 2 дня</li></ul></div>
+      <div class="box"><h3>Под ключ</h3><div class="price">120 000 ₸</div><ul><li>Всё из «Стандарта»</li><li>ИИ-разбор: срочность, категория, спам</li><li>Черновики ответов клиентам</li><li>14 дней поддержки</li></ul></div>
+    </div>
+    <p class="sub">Поддержка после запуска: 15 000 ₸ в месяц. Работа ИИ оплачивается отдельно напрямую Anthropic, это около $0,30 за 1000 заявок.</p>
+  </section>
+
+  <section class="sales faq" aria-labelledby="s-faq">
+    <h2 id="s-faq">Частые вопросы</h2>
+    <details><summary>С какими сайтами это работает?</summary><p>Tilda, WordPress (Contact Form 7, Elementor), Webflow, Wix и любой сайт, форма которого умеет отправлять вебхук. Сам сайт переделывать не нужно.</p></details>
+    <details><summary>У нас уже есть CRM. Это нужно?</summary><p>Да, это дополняет CRM. Заявки продолжат попадать туда же, а менеджер дополнительно получит мгновенное уведомление в Telegram с пометкой срочности.</p></details>
+    <details><summary>Сколько стоит работа ИИ каждый месяц?</summary><p>Разбор 1000 заявок обходится примерно в $0,30. Оплата идёт с вашего аккаунта Anthropic напрямую, без наценки. Без ИИ система тоже работает, но без пометки срочности и черновиков.</p></details>
+    <details><summary>Где хранятся данные клиентов?</summary><p>В вашей Google Таблице и вашем Telegram. Доступы настраиваются на ваши аккаунты, после сдачи вы можете отключить мне доступ.</p></details>
+    <details><summary>Что, если что-то сломается?</summary><p>14 дней после запуска исправляю бесплатно. Дальше можно подключить поддержку за 15 000 ₸ в месяц или обращаться разово.</p></details>
+  </section>
+
+  <section class="final" aria-label="Связаться">
+    <h2 style="margin:0;font:700 22px/1.25 var(--display)">Посчитаем, сколько заявок вы теряете</h2>
+    <p class="sub" style="margin:0;color:var(--muted)">Напишите в Telegram, какой у вас сайт и сколько примерно заявок в день. Отвечу в течение часа в рабочее время.</p>
+    <a class="btn primary" href="https://t.me/ordalinn" target="_blank" rel="noopener">Написать в Telegram: @ordalinn</a>
+  </section>
 
   <p class="note">Это интерактивная демонстрация, все заявки в ней примерные. На этой странице разбор делают простые правила по ключевым словам. В рабочей версии заявку разбирает Claude: он точнее определяет намерение клиента и пишет черновик ответа под конкретный вопрос. Работает с Tilda, WordPress и любой формой на сайте.</p>
 </div>
